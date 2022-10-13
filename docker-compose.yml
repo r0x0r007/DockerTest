@@ -13,7 +13,8 @@ services:
     networks:
       - backend
     ports:
-      - 8001:1443
+      - 8001:1433
+   
   customerwebapi:
     container_name: customer-api
     image: ${DOCKER_REGISTRY-}customerwebapi
