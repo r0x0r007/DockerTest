@@ -7,10 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-var dbHost = "localhost";
+var dbHost = @"(LocalDb)\MSSQLLocalDB";
 var dbName = "dms_customer";
 var dbPassword = "P@ssw0rd121#";
-var connectionString = $"Data Source={dbHost}; Initial Catalog={dbName}; User ID =sa; Password={dbPassword}";
+var connectionString = $"Data Source={dbHost}; Initial Catalog={dbName}; Integrated Security=True;";
 builder.Services.AddDbContext<CustomerDbContext>(opt => opt.UseSqlServer(connectionString));
 
 var app = builder.Build();
